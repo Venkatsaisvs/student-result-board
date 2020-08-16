@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Result Board</title>
+	
+</head>
+<body>
+	<link rel="stylesheet" type="text/css" href="student.css">
+<header id="header">
+	<h1>Student result table</h1>
+</header>
+
+<section id="one">
+<table id="resulttable">
+	<caption id="caption">Student Result Board</caption>
+<tr>
+	<th>Student Name</th>
+	<th>Roll Number</th>
+	<th>Total Marks</th>
+	<th>Status</th>
+</tr>
+<tr>
+	<tbody id="mytable">
+		
+	</tbody>
+</tr>
+
+</table>
+</section>
+<script>
+	var myjason=   [
+
+{
+"name":"rajiv",
+"marks":{
+"Maths":"18",
+"English":"21",
+"Science":"45"
+},
+"rollNumber":"KV2017-5A2"
+},
+{
+"name":"abhishek",
+"marks":{
+"Maths":"43",
+"English":"30",
+"Science":"37"
+},
+"rollNumber":"KV2017-5A1"
+},
+{
+"name":"zoya",
+"marks":{
+"Maths":"42",
+"English":"31",
+"Science":"50"
+},
+"rollNumber":"KV2017-5A3"
+}
+
+]
+  var table = document.getElementById('mytable')
+ var sum=(+myjason[1].marks.English) + (+myjason[1].marks.Maths) + (+myjason[1].marks.Science)
+
+
+for (var i = 0; i < myjason.length; i++) {
+
+
+	if(myjason[i].marks.Maths < 20){
+
+	var res = "fail"
+}else if ((myjason[i].marks.English<20)) {
+	var res= "fail"
+
+} else if (myjason[i].marks.Science<20) {
+
+
+	var res = 'fail'
+}
+else{
+
+var res= "pass"
+
+	
+}
+
+
+
+
+
+              
+
+total=(+myjason[i].marks.English) + (+myjason[i].marks.Maths) + (+myjason[i].marks.Science)
+
+             
+ if(sum<total)
+             {
+
+             	res = "Topper"
+    
+             }
+      
+
+       
+ if(res=="fail"){
+
+
+ 	var row =`<tr id=trfail>
+                      <td>${myjason[i].name}</td>
+                      <td>${myjason[i].rollNumber}</td>
+                      <td>${total}</td>
+                      <td>${res}</td>
+
+
+		             </tr>
+		 `
+       	 table.innerHTML += row
+       }
+           
+
+		
+ 	if (res=="Topper") {
+       		 var row =`<tr id=trtop>
+                      <td>${myjason[i].name}</td>
+                      <td>${myjason[i].rollNumber}</td>
+                      <td>${total}</td>
+                      <td>${res}</td>
+
+
+		             </tr>
+		 `
+
+		 table.innerHTML += row
+       	}
+
+     if(res=="pass"){
+       	var row =`<tr>
+                      <td>${myjason[i].name}</td>
+                      <td>${myjason[i].rollNumber}</td>
+                      <td>${total}</td>
+                      <td>${res}</td>
+
+
+		             </tr>
+		 `
+
+		 table.innerHTML += row
+
+       } 
+ 
+
+
+}
+
+</script>
+	
+
+</body>
+</html>

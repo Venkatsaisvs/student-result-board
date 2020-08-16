@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="student admission form.css">
+</head>
+<body>
+
+<header id="header">
+
+  <h1>Student admission form</h1>
+</header>
+
+<div class="container">
+  <form name="theform" >
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+    <label for="Class">class</label>
+    <input type="text" id="class" name="class" required> 
+
+      <label for=Year> Year of Passing </label>
+      <input type="number" placeholder="YYYY" min="2017" max="2100">
+
+      <label for="Percentage">percentage </label>
+      <input id="percentage" type="number" name="percentage" required>
+
+   <input id="submitbutton" type="submit" disabled="disabled" value="Submit" />
+  </form>
+</div>
+
+<script type="text/javascript">
+    function checkform()
+{
+    var f = document.forms["theform"].elements;
+    var cansubmit = true;
+
+    for (var i = 0; i < f.length; i++) {
+        if (f[i].value.length == 0) cansubmit = false;
+    }
+
+    if (cansubmit) {
+        document.getElementById('submitbutton').disabled = false;
+    }
+    else {
+        document.getElementById('submitbutton').disabled = 'disabled';
+    }
+}
+</script>
+</body>
+</html>
